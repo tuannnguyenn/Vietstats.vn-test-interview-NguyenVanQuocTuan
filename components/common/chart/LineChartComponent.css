@@ -1,0 +1,6 @@
+.apexcharts-tooltip {
+    background: #4B4B4B !important; /* Thay đổi màu nền tooltip */
+    color: #fff !important; /* Đặt màu chữ cho dễ đọc */
+    border-radius: 8px!important; /* Bo góc tooltip */
+    padding: 10px; /* Thêm khoảng cách bên trong */
+}
