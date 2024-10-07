@@ -15,8 +15,20 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<ILoginForm> = async (data) => {
     try {
       const res = await fetch("http://localhost:5000/user");
-      const dataResponse = await res.json();
-      if (dataResponse.some((user: ILoginForm) => _.isEqual(user, data))) {
+      const dataResponse: { id: string; userId: string; password: string }[] =
+        await res.json();
+      console.log(
+        dataResponse.some(
+          (user: { userId: string; password: string }) =>
+            user.userId === data.userId && user.password === data.password
+        )
+      );
+      if (
+        dataResponse.some(
+          (user: { userId: string; password: string }) =>
+            user.userId === data.userId && user.password === data.password
+        )
+      ) {
         enqueueSnackbar("Sign in successfully!", {
           variant: "success",
         });
